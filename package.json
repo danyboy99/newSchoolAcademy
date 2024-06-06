@@ -1,0 +1,42 @@
+{
+  "name": "new_school_academy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "inittsc": "tsc --init",
+    "build": "tsc --build",
+    "start": "node ./build/server.js",
+    "start:dev": "nodemon ./server/server.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danyboy99/newSchoolAcademy.git"
+  },
+  "author": "Danyboy99",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danyboy99/newSchoolAcademy/issues"
+  },
+  "homepage": "https://github.com/danyboy99/newSchoolAcademy#readme",
+  "dependencies": {
+    "argon2": "^0.40.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "flutterwave-node-v3": "^1.1.10",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.4.0",
+    "nodemailer": "^6.9.13",
+    "validator": "^13.12.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/node": "^20.12.13",
+    "@types/nodemailer": "^6.4.15",
+    "@types/validator": "^13.11.10",
+    "nodemon": "^3.1.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  }
+}
