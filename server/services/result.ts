@@ -13,7 +13,7 @@ export const createResult = async (
     newResult.termResult = term;
     newResult.result = result;
 
-    newResult.save();
+    await newResult.save();
 
     return newResult;
   } catch (err: any) {

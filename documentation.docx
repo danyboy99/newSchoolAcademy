@@ -1,0 +1,194 @@
+api docus
+
+
+// admin routes
+
+
+post:api/admin/login", loginBody {
+     staffnum : required,
+     password : required
+}
+
+post: /signup", signUpBody {
+    firstname : required,
+     lastname : required,
+      email : required, 
+      password : required, 
+      staffnum: required, 
+      passportimg : notrequired (under development, but will be required durring production) ;
+}
+
+route for creating student and parent account
+it's a private route
+post:api/admin/createstudentacc" create-student-accBody{
+     firstname : required,
+      lastname : required,
+      middlename : required,
+      email : required,
+      regnumber : required,
+      studentclass : required,
+      passportimg : notrequired (under development, but will be required durring production)   ,
+      parentemail : required,
+      parentnumberv: required,
+      parentfirstname : required,
+      parentlastname : required,
+}
+
+route for createing student result 
+it's a private route
+post: api/admin/createstudentresult"  student-resultBody {
+     regnumber : required, 
+     classresult : required, 
+     term : required, 
+     result:required Array [
+        {
+            subject: required,
+            score: required,
+            grade: required
+        }
+     ]
+}
+
+routes for updating exixting student result
+it's a private route
+put: api/admin/updateresult"  update-student-resultBody{
+    regnumber : required, 
+     classresult : required, 
+     term : required, 
+     result:required Array [
+        {
+            subject: required,
+            score: required,
+            grade: required
+        }
+     ]
+}
+route for getting all student result 
+it's a private route
+post: api/admin/getstudentresult"  get-Student-resultBody {
+    regnumber : required
+}
+
+route for sending general notification to app
+it's a private route
+post: api/admin/generalnotification" notificationBody {
+     title : required, 
+     content : required
+}
+
+route for sending  notification to student
+it's a private route
+post: api/admin/studentnotification"  student-notificationBody {
+     title : required, 
+     content : required, 
+     regnumber : required
+}
+
+route for getting all general notification
+it's a private route
+get: api/admin/checknotification"  nobody
+
+route for sending general email to all parent
+it's a private route
+post: api/admin/sendgeneralemail"  send-mailBody {
+    subject :required,
+     text : required
+}
+
+route for sending personal email to all parent
+it's a private route
+post: api/admin/sendsinglemail"  send-personal-mailBody {
+    subject : required, 
+    text : required, 
+    to : required
+} 
+
+
+//student routes 
+
+route for login in 
+post api/student/login", loginBody {
+    regnumber : required, 
+    password : required
+}
+
+route for getting student details
+it's a private route
+get  api/student/details",  nobody required
+
+route for changing or createing password
+it's a private route
+post api/student/updatepassword",  changePasswordBody{
+    password: required,
+    password2: required
+}
+
+routes for getting student personal notification
+it's a private route
+get api/student/notification", nobody required
+
+route for getting student result by term
+it's a private route
+post api/student/termresult",  check-Student-Term-ResultBody{
+    studentClass :required,
+     term: required
+}
+
+route for getting all result for a paticular student
+it's a private route
+get api/student/results",  nobody required  
+
+
+//parent routes 
+route for parent to login 
+post api/parent/login", parent-loginBody {
+    email : required, 
+    password :required
+}
+
+route for update/creating password 
+it's a private route
+post api/parent/updatepassword",  changeParentPassword{
+     password: required,
+    password2: required
+}
+route for making school fees payment 
+it's a private route
+post  api/parent/initiatepayment",  initiate-PaymentBody {
+    studentRegnumber : required
+      classPayedFor : required
+      termPayedFor : required
+      card_number : required
+      card_cvv : required
+      card_exp_month : required
+      card_exp_year : required
+      email : required
+      name : required
+      amount : required
+      card_pin : required
+}
+
+route after initiatepayment for otp verification
+it's a private route
+post api/parent/validatepayment",  validate-PaymentBody {
+     otp : required, 
+     flw_ref :required, 
+     tx_ref :required
+}
+
+route for checking confirm payment 
+it's a private route
+post api/parent/checkpayment",  check-PaymentBody {
+    tx_ref: required
+}
+
+route for updating parent details
+it's a private route
+put api/parent/updatedetails",  update-DetailsBody {
+    email: required,
+    number: required
+} 
+
+route for getting parent details
+it's a private route
+put api/parent/details",  nobody required

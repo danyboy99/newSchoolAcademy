@@ -8,7 +8,6 @@ export const signToken = (user: any) => {
     email: user.email,
     exp: Math.floor(Date.now() / 1000) + 60 * 60 * 2,
   };
-  console.log("secret:", jwt_secret);
   return jwt.sign(payload, jwt_secret);
 };
 

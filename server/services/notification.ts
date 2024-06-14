@@ -7,14 +7,7 @@ export const createNotification = async (
   content: Array<string>
 ) => {
   try {
-    let newNotification = new Notification();
-    let inputedNotification = {
-      title: title,
-      content: content,
-    };
-    newNotification.notifications.push(inputedNotification);
-
-    newNotification.save();
+    let newNotification = await Notification.create({ title, content });
 
     return newNotification;
   } catch (err: any) {

@@ -17,6 +17,7 @@ const studentSchema = new Schema(
     email: {
       type: String,
       required: true,
+      unique: true,
     },
     password: {
       type: String,
@@ -31,19 +32,10 @@ const studentSchema = new Schema(
     regNumber: {
       type: String,
       required: true,
+      unique: true,
     },
     Notifications: {
-      type: Array,
-    },
-    parentNumber: {
-      type: Number,
-    },
-    parentEmail: {
-      type: String,
-    },
-    parentPassword: {
-      type: String,
-      required: true,
+      type: [Object],
     },
     restrictStatus: {
       type: Boolean,

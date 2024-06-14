@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import adminRoutes from "./routes/admin";
 import studentRoutes from "./routes/student";
+import parentRoutes from "./routes/parent";
 
 const app = express();
 
@@ -25,10 +26,13 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 //admin routes
-app.use("/admin", adminRoutes);
+app.use("/api/admin", adminRoutes);
 
 //student routes
-app.use("/student", studentRoutes);
+app.use("/api/student", studentRoutes);
+
+//student routes
+app.use("/api/parent", parentRoutes);
 
 const port = process.env.PORT || 6500;
 
